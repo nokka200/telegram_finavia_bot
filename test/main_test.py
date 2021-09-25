@@ -2,12 +2,15 @@ import os
 import telebot
 import datetime
 from request_test import requester
+from dotenv import load_dotenv
 
 """
 This is the test file for the main loop for the telegram bot program
 """
+load_dotenv()
 
-API_KEY = os.getenv("API_KEY")
+
+API_KEY = os.getenv("API_KEY_TELEG")
 APP_ID_FINAVIA = os.getenv("APP_ID_FINAVIA")
 APP_KEY_FINAVIA = os.getenv("APP_KEY_FINAVIA")
 
