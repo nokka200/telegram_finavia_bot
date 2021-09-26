@@ -1,5 +1,13 @@
 import requests
 import xml.etree.ElementTree as ET
+from request_txt_test import flight_checker
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+APP_ID_FINAVIA = os.getenv("APP_ID_FINAVIA")
+APP_KEY_FINAVIA = os.getenv("APP_KEY_FINAVIA")
 
 """
 This is the test file for the request moduele that will be used with the bot
@@ -22,14 +30,22 @@ def requester(APP_ID_FINAVIA, APP_KEY_FINAVIA):
 
     # print(root[0][1][0][0].text)
 
+    flight_checker(lenght, root)
+
+    """
     for item in range(0, lenght):
         print(f"Lennon numero: {root[0][1][item][1].text}")
         print(f"Tila: {root[0][1][item][31].text}")
-        print(f"33 est_d  {root[0][1][item][33].text}")
-        print(f"34 pest_d {root[0][1][item][34].text}")
-        print(f"35 act_d  {root[0][1][item][35].text}")
-        print(f"36 ablk_d {root[0][1][item][36].text}\n")
+        print(f"Lähtö: (lähtö kaupunki)     {root[0][1][item][17].text}")
+        print(f"33 est_d (arvioitu lähtö)   {root[0][1][item][33].text}")
+        print(f"34 pest_d (todellinen lähtö){root[0][1][item][34].text}")
+        print(f"35 act_d                    {root[0][1][item][35].text}")
+        print(f"36 ablk_d                   {root[0][1][item][36].text}\n")
 
-        re_value += f"Lennon numero: {root[0][1][item][1].text}\nTila: {root[0][1][item][31].text}\n est_d  {root[0][1][item][33].text}\n"
+        re_value += f"Lennon numero: {root[0][1][item][1].text}\nTila: {root[0][1][item][31].text}\n"
 
     return re_value
+    """
+
+
+requester(APP_ID_FINAVIA, APP_KEY_FINAVIA)

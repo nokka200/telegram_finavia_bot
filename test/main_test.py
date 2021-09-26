@@ -3,6 +3,7 @@ import telebot
 import datetime
 from request_test import requester
 from dotenv import load_dotenv
+from request_txt_test import flight_checker
 
 """
 This is the test file for the main loop for the telegram bot program
