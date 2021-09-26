@@ -1,3 +1,4 @@
+from types import resolve_bases
 import xml.etree.ElementTree as ET
 import datetime
 from func_test import *
@@ -11,7 +12,7 @@ root = tree.getroot()
 
 lenght = len(root[0][1][0])
 
-print(root[0][1][0][0].text)
+# print(root[0][1][0][0].text)
 
 
 def flight_checker(lenght, root):
@@ -48,4 +49,35 @@ def flight_checker(lenght, root):
         # print(f"36 ablk_d {root[0][1][item][36].text}\n")
 
 
-flight_checker(lenght, root)
+def flight_checker_2(lenght, root):
+    re_list = []
+    for item in range(0, lenght):
+        first_line = f"Lennon numero:               {root[0][1][item][1].text}\n"
+        second_line = (
+            f"Tila:                        {status_fixer(root[0][1][item][31].text)}\n"
+        )
+        third_line = f"Lähtö: (lähtö kaupunki)      {root[0][1][item][17].text}\n"
+        time_raw = root[0][1][item][33].text
+        fixed_33 = date_fixer(time_raw)
+        fixed_33 = time_fixer(fixed_33)
+        fourth_line = f"33 est_d (arvioitu lasku)    {fixed_33}\n"
+
+        time_raw = root[0][1][item][34].text
+        fixed_34 = date_fixer(time_raw)
+        fixed_34 = time_fixer(fixed_34)
+        fifth_line = f"34 pest_d (todellinen lasku) {fixed_33}\n"
+
+        complete_line = first_line + second_line + third_line + fourth_line + fifth_line
+
+        re_list.append(complete_line)
+        # append(first_line)
+        # re_list.append(second_line)
+        # append(third_line)
+        # re_list.append(fourth_line)
+        # re_list.append(fifth_line)
+
+    return re_list
+
+
+re = flight_checker_2(lenght, root)
+# flight_checker(lenght, root)

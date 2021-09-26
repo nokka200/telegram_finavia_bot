@@ -3,7 +3,7 @@ import telebot
 import datetime
 from request_test import requester
 from dotenv import load_dotenv
-from request_txt_test import flight_checker
+
 
 """
 This is the test file for the main loop for the telegram bot program
@@ -60,6 +60,14 @@ def time(message):
     bot.send_message(
         message.chat.id, f"Flights:\n {requester(APP_ID_FINAVIA, APP_KEY_FINAVIA)}"
     )
+
+
+@bot.message_handler(commands=["Flights2"])
+# Flight tester
+def time(message):
+    requester_re = requester(APP_ID_FINAVIA, APP_KEY_FINAVIA)
+    for count in range(0, requester_re[1]):
+        bot.send_message(message.chat.id, f"{requester_re[0][count]}")
 
 
 bot.polling()

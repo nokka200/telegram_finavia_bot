@@ -1,6 +1,6 @@
 import requests
 import xml.etree.ElementTree as ET
-from request_txt_test import flight_checker
+from request_txt_test import flight_checker, flight_checker_2
 from dotenv import load_dotenv
 import os
 
@@ -30,7 +30,7 @@ def requester(APP_ID_FINAVIA, APP_KEY_FINAVIA):
 
     # print(root[0][1][0][0].text)
 
-    flight_checker(lenght, root)
+    # flight_checker(lenght, root)
 
     """
     for item in range(0, lenght):
@@ -46,6 +46,9 @@ def requester(APP_ID_FINAVIA, APP_KEY_FINAVIA):
 
     return re_value
     """
+
+    final_re = flight_checker_2(lenght, root)
+    return (final_re, lenght)
 
 
 requester(APP_ID_FINAVIA, APP_KEY_FINAVIA)
