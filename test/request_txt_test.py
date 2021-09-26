@@ -50,6 +50,7 @@ def flight_checker(lenght, root):
 
 
 def flight_checker_2(lenght, root):
+    # This is the current working func, it comibines all the requested lines to a list then returns it
     re_list = []
     for item in range(0, lenght):
         first_line = f"Lennon numero:               {root[0][1][item][1].text}\n"
@@ -67,6 +68,7 @@ def flight_checker_2(lenght, root):
         fixed_34 = time_fixer(fixed_34)
         fifth_line = f"34 pest_d (todellinen lasku) {fixed_33}\n"
 
+        # adds all lines up
         complete_line = first_line + second_line + third_line + fourth_line + fifth_line
 
         re_list.append(complete_line)

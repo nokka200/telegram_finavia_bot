@@ -63,7 +63,7 @@ def time(message):
 
 
 @bot.message_handler(commands=["Flights2"])
-# Flight tester
+# Flight tester current working
 def time(message):
     requester_re = requester(APP_ID_FINAVIA, APP_KEY_FINAVIA)
     for count in range(0, requester_re[1]):

@@ -16,6 +16,10 @@ This is the test file for the request moduele that will be used with the bot
 
 def requester(APP_ID_FINAVIA, APP_KEY_FINAVIA):
 
+    """
+    This function sends a request to Finavia API and requests all arriving flights to Helsinki, returns a tuple that has pos 0 list of the responses and 1 lenght of the list.
+    """
+
     head = {"app_id": APP_ID_FINAVIA, "app_key": APP_KEY_FINAVIA}
     url = "https://api.finavia.fi/flights/public/v0/flights/arr/HEL"
 
