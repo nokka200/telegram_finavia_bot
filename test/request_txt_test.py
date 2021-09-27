@@ -54,19 +54,22 @@ def flight_checker_2(lenght, root):
     re_list = []
     for item in range(0, lenght):
         first_line = f"Lennon numero:               {root[0][1][item][1].text}\n"
-        second_line = (
-            f"Tila:                        {status_fixer(root[0][1][item][31].text)}\n"
-        )
+        print(f"Lennon numero:               {root[0][1][item][1].text}")
+        second_line = f"Tila:                          {status_fixer(root[0][1][item][31].text)}\n"
+        print(f"Tila:                        {status_fixer(root[0][1][item][31].text)}")
         third_line = f"Lähtö: (lähtö kaupunki)      {root[0][1][item][17].text}\n"
+        print(f"Lähtö: (lähtö kaupunki)      {root[0][1][item][17].text}")
         time_raw = root[0][1][item][33].text
         fixed_33 = date_fixer(time_raw)
         fixed_33 = time_fixer(fixed_33)
-        fourth_line = f"33 est_d (arvioitu lasku)    {fixed_33}\n"
+        fourth_line = f"33 est_d (arvioitu lasku)      {fixed_33}\n"
+        print(f"33 est_d (arvioitu lasku)    {fixed_33}")
 
         time_raw = root[0][1][item][34].text
         fixed_34 = date_fixer(time_raw)
         fixed_34 = time_fixer(fixed_34)
-        fifth_line = f"34 pest_d (todellinen lasku) {fixed_33}\n"
+        fifth_line = f"34 pest_d (todellinen lasku)  {fixed_33}\n"
+        print(f"34 pest_d (todellinen lasku) {fixed_33}\n")
 
         # adds all lines up
         complete_line = first_line + second_line + third_line + fourth_line + fifth_line
@@ -81,5 +84,5 @@ def flight_checker_2(lenght, root):
     return re_list
 
 
-re = flight_checker_2(lenght, root)
+# re = flight_checker_2(lenght, root)
 # flight_checker(lenght, root)

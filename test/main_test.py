@@ -16,6 +16,7 @@ APP_ID_FINAVIA = os.getenv("APP_ID_FINAVIA")
 APP_KEY_FINAVIA = os.getenv("APP_KEY_FINAVIA")
 
 bot = telebot.TeleBot(API_KEY)
+# bot.polling()
 
 commands_list = ["/Greet", "/Ville", "/Date", "/Flights"]
 
